@@ -10,6 +10,7 @@ instance_type = "t2.micro"
 key_name = "mykey1"
 vpc_security_group_ids = [aws_security_group.demo-sg.id]
 tags = {
+Environment = "dev"
 Name = "project_instance"
 }
 }
