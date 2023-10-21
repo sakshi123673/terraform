@@ -4,7 +4,7 @@ access_key = "AKIA2VGJUPMDHHK3WKHF"
 secret_key = "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"
 }
 
-resource "aws_instance" "key" {
+resource "aws_instance" "Key" {
 ami = "ami-023e1b810cda5ce69"
 instance_type = "t2.micro"
 key_name = "mykey1"
