@@ -1,0 +1,25 @@
+---
+- hosts: aws_ec2
+  connection: ssh
+  become: yes
+  user: ec2-user
+
+  vars:
+    ansible_ssh_private_key_file: "/etc/ansible/mykey1.pem"
+    ansible_ssh_user: ec2-user
+
+  tasks:
+    - name: install httpd
+      command: yum install httpd -y
+
+    - name: restart httpd
+      service: name=httpd state=present
+
+    - name: install git
+      action: yum name=git state=present
+
+    - name: getting code fron git
+      git:
+        repo: https://github.com/sakshi123673/mono-project.git
+        dest: /war/www/html/
+        version: frontend
